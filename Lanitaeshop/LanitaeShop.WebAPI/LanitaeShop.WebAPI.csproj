@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LanitaeShop.BusinessLogic\LanitaeShop.BusinessLogic.csproj" />
+    <ProjectReference Include="..\LanitaeShop.DataAccess\LanitaeShop.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
