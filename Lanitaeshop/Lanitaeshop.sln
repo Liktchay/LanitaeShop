@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.DataAccess", "..\..\..\Users\Administrator\Documents\miproject\LanitaeShop.DataAccess\LanitaeShop.DataAccess.csproj", "{5BA8BC31-E1EC-4AE8-94A7-9D63F631962B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanitaeShop.DataAccess", "LanitaeShop.DataAccess\LanitaeShop.DataAccess.csproj", "{37A3914A-B7A4-4C72-B903-D756D8521588}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.BusinessLogic", "..\..\..\Users\Administrator\Documents\miproject\LanitaeShop.BusinessLogic\LanitaeShop.BusinessLogic.csproj", "{7C3CEEC8-5174-4443-9BC4-0C92D958E828}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanitaeShop.BusinessLogic", "LanitaeShop.BusinessLogic\LanitaeShop.BusinessLogic.csproj", "{AE4A2B88-A1DE-4D0D-8174-ED5DD8B200E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop", "..\..\..\Users\Administrator\Documents\miproject\LanitaeShop\LanitaeShop.csproj", "{52A064B2-D985-4E4F-84A0-815AAAA9BA7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanitaeShop.WebAPI", "LanitaeShop.WebAPI\LanitaeShop.WebAPI.csproj", "{5CE42B25-E3D2-4FB0-8371-4057191D8A88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5BA8BC31-E1EC-4AE8-94A7-9D63F631962B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BA8BC31-E1EC-4AE8-94A7-9D63F631962B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5BA8BC31-E1EC-4AE8-94A7-9D63F631962B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5BA8BC31-E1EC-4AE8-94A7-9D63F631962B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C3CEEC8-5174-4443-9BC4-0C92D958E828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C3CEEC8-5174-4443-9BC4-0C92D958E828}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C3CEEC8-5174-4443-9BC4-0C92D958E828}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C3CEEC8-5174-4443-9BC4-0C92D958E828}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52A064B2-D985-4E4F-84A0-815AAAA9BA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52A064B2-D985-4E4F-84A0-815AAAA9BA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52A064B2-D985-4E4F-84A0-815AAAA9BA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52A064B2-D985-4E4F-84A0-815AAAA9BA7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A3914A-B7A4-4C72-B903-D756D8521588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A3914A-B7A4-4C72-B903-D756D8521588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A3914A-B7A4-4C72-B903-D756D8521588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A3914A-B7A4-4C72-B903-D756D8521588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE4A2B88-A1DE-4D0D-8174-ED5DD8B200E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE4A2B88-A1DE-4D0D-8174-ED5DD8B200E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE4A2B88-A1DE-4D0D-8174-ED5DD8B200E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE4A2B88-A1DE-4D0D-8174-ED5DD8B200E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE42B25-E3D2-4FB0-8371-4057191D8A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CE42B25-E3D2-4FB0-8371-4057191D8A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CE42B25-E3D2-4FB0-8371-4057191D8A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CE42B25-E3D2-4FB0-8371-4057191D8A88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
