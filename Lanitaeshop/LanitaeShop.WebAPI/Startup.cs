@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LanitaeShop.BusinessLogic.Services.Implementation;
+using LanitaeShop.BusinessLogic.Services.Interfaces;
 
 namespace LanitaeShop.WebAPI
 {
@@ -24,6 +26,11 @@ namespace LanitaeShop.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            #region Custom Services
+            services.AddScoped<IProduct_Service, Product_Service>();
+            services.AddScoped<IProductVariety_Service, ProductVariety_Service>();
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
