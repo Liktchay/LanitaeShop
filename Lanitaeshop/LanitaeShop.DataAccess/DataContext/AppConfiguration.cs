@@ -16,7 +16,7 @@ namespace LanitaeShop.DataAccess.DataContext
 
             IConfigurationRoot root = configurationBuilder.Build();
 
-            IConfigurationSection appSettings = root.GetSection("ConnectionStrings: DefaultConnection");
+            IConfigurationSection appSettings = root.GetSection("ConnectionStrings:DefaultConnection");
 
             SqlConnectionString = appSettings.Value;
         }

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanitaeShop.DataAccess", "LanitaeShop.DataAccess\LanitaeShop.DataAccess.csproj", "{37A3914A-B7A4-4C72-B903-D756D8521588}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.DataAccess", "LanitaeShop.DataAccess\LanitaeShop.DataAccess.csproj", "{37A3914A-B7A4-4C72-B903-D756D8521588}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanitaeShop.BusinessLogic", "LanitaeShop.BusinessLogic\LanitaeShop.BusinessLogic.csproj", "{AE4A2B88-A1DE-4D0D-8174-ED5DD8B200E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.BusinessLogic", "LanitaeShop.BusinessLogic\LanitaeShop.BusinessLogic.csproj", "{AE4A2B88-A1DE-4D0D-8174-ED5DD8B200E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanitaeShop.WebAPI", "LanitaeShop.WebAPI\LanitaeShop.WebAPI.csproj", "{5CE42B25-E3D2-4FB0-8371-4057191D8A88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.WebAPI", "LanitaeShop.WebAPI\LanitaeShop.WebAPI.csproj", "{5CE42B25-E3D2-4FB0-8371-4057191D8A88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.UI", "LanitaeShop.UI\LanitaeShop.UI.csproj", "{874C9553-4E53-4DAF-AC78-6135452DB061}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5CE42B25-E3D2-4FB0-8371-4057191D8A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE42B25-E3D2-4FB0-8371-4057191D8A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE42B25-E3D2-4FB0-8371-4057191D8A88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{874C9553-4E53-4DAF-AC78-6135452DB061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{874C9553-4E53-4DAF-AC78-6135452DB061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{874C9553-4E53-4DAF-AC78-6135452DB061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{874C9553-4E53-4DAF-AC78-6135452DB061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
