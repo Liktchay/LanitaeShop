@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using LanitaeShop.DataAccess.Entities;
+using LanitaeShop.DataAccess.Mapping;
 
 namespace LanitaeShop.DataAccess.DataContext
 {
@@ -31,7 +33,24 @@ namespace LanitaeShop.DataAccess.DataContext
 
         public static OptionsBuild Options = new OptionsBuild();
 
+        public DbSet<AllVarietiesResult> AllVarietiesResults { get; set; }
+        public DbSet<ProductVariety> ProductVariety { get; set; }
+        /// <summary>
+        /// Applies all mapping and configurations defined within the assembly.
+        /// </summary>
+        /// <param name="modelBuilder">The builder being used to construct the model for this context.</param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {               
+            base.OnModelCreating(modelBuilder);
+
+            new ProductVarietyMap(modelBuilder);
+            
+            modelBuilder.ApplyConfiguration(new ProductMap());
+            //modelBuilder.ApplyConfigurationsFromAssembly(System.Reflection.Assembly.GetExecutingAssembly());
+        }
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
+
+        
 
     }
 }
