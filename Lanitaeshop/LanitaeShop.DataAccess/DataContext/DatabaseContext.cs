@@ -34,7 +34,9 @@ namespace LanitaeShop.DataAccess.DataContext
         public static OptionsBuild Options = new OptionsBuild();
 
         public DbSet<AllVarietiesResult> AllVarietiesResults { get; set; }
-        public DbSet<ProductVariety> ProductVariety { get; set; }
+
+        //public DbSet<ProductVariety> ProductVariety { get; set; }
+
         /// <summary>
         /// Applies all mapping and configurations defined within the assembly.
         /// </summary>

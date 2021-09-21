@@ -21,7 +21,7 @@ namespace LanitaeShop.WebAPI.Controller
         }
 
 
-        [HttpGet]
+        [HttpPost]
         [Route("callsp")]
         public async Task<IActionResult> callsp(int id)
         {
