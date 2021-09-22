@@ -12,7 +12,7 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
     public class Product_Service : IProduct_Service
     {
         private ICRUD _crud = new CRUD();
-        public async Task<ResultSet<Product_ResultSet>> AddProduct(string garment, float price)
+        public async Task<ResultSet<Product_ResultSet>> AddProduct(string productName, string productDescription, int productPrice, int productStock, bool productEnable)
         {
             ResultSet<Product_ResultSet> result = new ResultSet<Product_ResultSet>();
 
@@ -20,8 +20,11 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             {
                 Product newProduct = new Product
                 {
-                    Garment = garment,
-                    Price = price
+                    ProductName = productName,
+                    ProductDescription = productDescription,
+                    ProductPrice = productPrice,
+                    ProductStock = productStock,
+                    ProductEnable = productEnable
                 };
 
                 newProduct = await _crud.Create<Product>(newProduct);
@@ -29,11 +32,14 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                 Product_ResultSet addedProduct = new Product_ResultSet
                 {
                     id = newProduct.ID,
-                    garment = newProduct.Garment,
-                    price = newProduct.Price
+                    productName = newProduct.ProductName,
+                    productDescription = newProduct.ProductDescription,
+                    productPrice = newProduct.ProductPrice,
+                    productStock = newProduct.ProductStock,
+                    productEnable = newProduct.ProductEnable
                 };
 
-                result.userMessage = string.Format("The product {0} has been added", garment);
+                result.userMessage = string.Format("The product {0} has been added", productName);
                 result.internalMessage = "BusinessLogic.Services.Implementation.Product_Service: AddProduct() method executed successfuly.";
                 result.result_set = addedProduct;
                 result.success = true;
@@ -59,8 +65,11 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                 Product_ResultSet productFind = new Product_ResultSet
                 {
                     id = Product.ID,
-                    garment = Product.Garment,
-                    price = Product.Price
+                    productName = Product.ProductName,
+                    productDescription = Product.ProductDescription,
+                    productPrice = Product.ProductPrice,
+                    productStock = Product.ProductStock,
+                    productEnable = Product.ProductEnable
                 };
 
                 result.userMessage = string.Format("Product with ID {0} was found", id);
@@ -78,7 +87,7 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             return result;
         }
 
-        public async Task<ResultSet<Product_ResultSet>> UpdateProduct(int id, string garment, float price)
+        public async Task<ResultSet<Product_ResultSet>> UpdateProduct(int id, string productName, string productDescription, int? productPrice, int? productStock, bool? productEnable)
         {
             ResultSet<Product_ResultSet> result = new ResultSet<Product_ResultSet>();
 
@@ -86,16 +95,23 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             {
                 Product Product = await _crud.Select<Product>(id);
 
-                Product.Garment = garment.Length > 0 ? garment : Product.Garment;
-                Product.Price = price > 0 ? price : Product.Price;
+                Product.ProductName = !string.IsNullOrEmpty(productName) ? productName : Product.ProductName;
+                Product.ProductDescription = !string.IsNullOrEmpty(productDescription) ? productDescription : Product.ProductDescription;
+                Product.ProductPrice = productPrice != null  ? productPrice : Product.ProductPrice;
+                Product.ProductStock = productStock != null ? productStock : Product.ProductStock;
+                Product.ProductEnable = productEnable != null ? productEnable : Product.ProductEnable;
+
 
                 Product = await _crud.Update<Product>(Product, id);
 
                 Product_ResultSet updatedProduct = new Product_ResultSet
                 {
                     id = Product.ID,
-                    garment = Product.Garment,
-                    price = Product.Price
+                    productName = Product.ProductName,
+                    productDescription = Product.ProductDescription,
+                    productPrice = Product.ProductPrice,
+                    productStock = Product.ProductStock,
+                    productEnable = Product.ProductEnable
                 };
 
                 result.userMessage = string.Format("The product with ID {0} has been successfuly updated", id);
