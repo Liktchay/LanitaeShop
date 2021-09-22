@@ -5,43 +5,53 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace LanitaeShop.DataAccess.Mapping
 {
 
-    internal class ProductMap : IEntityTypeConfiguration<Entities.Product>
+    internal class ProductMap : IEntityTypeConfiguration<Product>
     {
 
         
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder//.Entity<Product>()
-                   .ToTable("Product");
+            builder.ToTable("Product");
 
-            builder//.Entity<Product>()
-                   .Property(pd => pd.ID)
+            builder.Property(pd => pd.ID)
                    .HasColumnName("ID")
                    .HasColumnType("int")
                    .ValueGeneratedOnAdd()
                    .IsRequired(true);
 
-            builder//.Entity<Product>()
-                   .HasKey(pd => pd.ID);
+            builder.HasKey(pd => pd.ID);
 
-            builder//.Entity<Product>()
-                   .Property(pd => pd.Garment)
-                   .HasColumnName("Garment")
+            builder.Property(pd => pd.ProductName)
+                   .HasColumnName("Product_Name")
                    .HasColumnType("varchar")
                    .HasMaxLength(200)
                    .IsRequired(true);
 
-            builder//.Entity<Product>()
-                   .Property(pd => pd.Price)
-                   .HasColumnName("Price")
-                   .HasColumnType("decimal")
-                   .HasPrecision(10, 3)
+            builder.Property(pd => pd.ProductDescription)
+                   .HasColumnName("Product_Description")
+                   .HasColumnType("varchar")
+                   .HasMaxLength(200)
+                   .IsRequired(false);
+
+            builder.Property(pd => pd.ProductPrice)
+                   .HasColumnName("Product_Price")
+                   .HasColumnType("int")
+                   .HasDefaultValue(200)
                    .IsRequired(true);
 
-            builder//.Entity<Product>()
-                   .HasMany<ProductVariety>(pv => pv.ProductVariety)
-                   .WithOne(pd => pd.Product)
-                   .HasForeignKey(pv => pv.ProductID)
+            builder.Property(pd => pd.ProductStock)
+                   .HasColumnName("Product_Stock")
+                   .HasColumnType("int")
+                   .IsRequired(true);
+
+            builder.Property(pd => pd.ProductEnable)
+                   .HasColumnName("Product_Enable")
+                   .HasColumnType("bit")
+                   .IsRequired(true);
+
+            builder.HasMany<Sale>(pr => pr.Sale)
+                   .WithOne(sl => sl.ProductID)
+                   .HasForeignKey(sl => sl.ProductID)
                    .OnDelete(DeleteBehavior.Restrict);
         }
 
