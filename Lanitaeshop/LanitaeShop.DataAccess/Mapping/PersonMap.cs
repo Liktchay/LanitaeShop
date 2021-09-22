@@ -38,7 +38,7 @@ namespace LanitaeShop.DataAccess.Mapping
                    .IsRequired(true);
 
             builder.HasMany<Sale>(pr => pr.Sale)
-                   .WithOne(sl => sl.PersonID)
+                   .WithOne(sl => sl.Person)
                    .HasForeignKey(sl => sl.PersonID)
                    .IsRequired(true)
                    .OnDelete(DeleteBehavior.Restrict);

@@ -50,7 +50,7 @@ namespace LanitaeShop.DataAccess.Mapping
                    .IsRequired(true);
 
             builder.HasMany<Sale>(pr => pr.Sale)
-                   .WithOne(sl => sl.ProductID)
+                   .WithOne(sl => sl.Product)
                    .HasForeignKey(sl => sl.ProductID)
                    .OnDelete(DeleteBehavior.Restrict);
         }

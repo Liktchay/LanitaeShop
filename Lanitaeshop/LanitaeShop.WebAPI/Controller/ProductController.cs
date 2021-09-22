@@ -9,7 +9,7 @@ using LanitaeShop.Models.Product;
 
 namespace LanitaeShop.Controller
 {
-    [Route("api/product")]
+    [Route("product")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -22,9 +22,9 @@ namespace LanitaeShop.Controller
 
         [HttpPost]
         [Route("addproduct")]
-        public async Task<IActionResult> AddProduct(string garment, float price)//Product_Pass_Object product)
+        public async Task<IActionResult> AddProduct(string name, string description, int price, int stock, bool enable)//Product_Pass_Object product)
         {
-            var result = await _product_Service.AddProduct(garment, price);//product.garment, product.price);
+            var result = await _product_Service.AddProduct(name, description, price, stock, enable);//product.garment, product.price);
 
             switch (result.success)
             {
@@ -53,10 +53,10 @@ namespace LanitaeShop.Controller
         }
 
         [HttpPost]
-        [Route("/[action]")]
-        public async Task<IActionResult> UpdateProduct(ProductUpdate_Pass_Object product)
+        [Route("updateproduct")]
+        public async Task<IActionResult> UpdateProduct(int id, string name, string description, int? price, int? stock, bool? enable)
         {
-            var result = await _product_Service.UpdateProduct(product.id, product.garment, product.price);
+            var result = await _product_Service.UpdateProduct(id, name, description, price, stock, enable);
 
             switch (result.success)
             {

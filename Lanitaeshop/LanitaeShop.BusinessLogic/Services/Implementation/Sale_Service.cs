@@ -21,7 +21,7 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             {
                 Sale newSale = new Sale()
                 {
-                    ID = productID,
+                    ProductID = productID,
                     SaleTotalAmount = saleTotalAmout,
                     PersonID = personID
                 };
@@ -30,7 +30,6 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
 
                 Sale_ResultSet addedSale = new Sale_ResultSet()
                 {
-                    id = newSale.ID,
                     productID = newSale.ProductID,
                     saleTotalAmount = newSale.SaleTotalAmount,
                     personID = newSale.PersonID,
