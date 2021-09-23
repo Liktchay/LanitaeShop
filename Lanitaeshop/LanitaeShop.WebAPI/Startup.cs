@@ -28,8 +28,8 @@ namespace LanitaeShop.WebAPI
             services.AddRazorPages();
             #region Custom Services
             services.AddScoped<IProduct_Service, Product_Service>();
-            services.AddScoped<IProductVariety_Service, ProductVariety_Service>();
-            services.AddScoped<IAllVarieties_Service, AllVarieties_Service>();
+            services.AddScoped<IPerson_Service, Person_Service>();
+            services.AddScoped<ISale_Service, Sale_Service>();
             #endregion
         }
 
