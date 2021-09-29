@@ -30,6 +30,7 @@ namespace LanitaeShop.WebAPI
             services.AddScoped<IProduct_Service, Product_Service>();
             services.AddScoped<IPerson_Service, Person_Service>();
             services.AddScoped<ISale_Service, Sale_Service>();
+            services.AddScoped<ISPExecution_Service, SPExecution_Service>();
             #endregion
         }
 
