@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.DataAccess", "LanitaeShop.DataAccess\LanitaeShop.DataAccess.csproj", "{37A3914A-B7A4-4C72-B903-D756D8521588}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.WebAPI", "LanitaeShop.WebAPI\LanitaeShop.WebAPI.csproj", "{5CE42B25-E3D2-4FB0-8371-4057191D8A88}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanitaeShop.UI", "LanitaeShop.UI\LanitaeShop.UI.csproj", "{874C9553-4E53-4DAF-AC78-6135452DB061}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "LanitaeShop.UINew", "LanitaeShop.UINew\LanitaeShop.UINew.esproj", "{F8880062-FFF9-4144-ADCC-66F81F583A3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,12 @@ Global
 		{874C9553-4E53-4DAF-AC78-6135452DB061}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{874C9553-4E53-4DAF-AC78-6135452DB061}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{874C9553-4E53-4DAF-AC78-6135452DB061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8880062-FFF9-4144-ADCC-66F81F583A3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8880062-FFF9-4144-ADCC-66F81F583A3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8880062-FFF9-4144-ADCC-66F81F583A3F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F8880062-FFF9-4144-ADCC-66F81F583A3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8880062-FFF9-4144-ADCC-66F81F583A3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8880062-FFF9-4144-ADCC-66F81F583A3F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
