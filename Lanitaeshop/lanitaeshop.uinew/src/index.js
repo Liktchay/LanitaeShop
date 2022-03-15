@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Layout from './components/layout/layout.jsx'
 
-function ClothList() {
+function Index() {
     return (
         <section>
-            Available Clothes
+            <Layout/>
         </section>
     );
 }
 
-ReactDOM.render(<ClothList/>, document.getElementById('root'))
+ReactDOM.render(<Index/>, document.getElementById('root'))

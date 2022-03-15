@@ -1,0 +1,15 @@
+.menu-style {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(90px,1fr));
+    gap: 0.5rem;
+    justify-items: center;
+    
+}
+
+
+/*@media screen and (min-width:400px){
+    .menu-style:nth-child(){
+        grid-template-columns:min-content,1fr;
+        grid-template-rows:fit-content(1);
+    }
+}*/

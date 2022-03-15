@@ -1,0 +1,18 @@
+.menuButton{
+  /*  border:solid;
+    border-width: 0.2rem;
+    border-color: blue;*/
+    padding: 0.3rem;
+    margin:0.1rem;  
+    display:grid;
+    width: 100%;
+    text-align:center;
+    background-color:bisque;
+    transition:filter 300ms;
+}
+
+.menuButton:hover{
+    cursor:pointer;
+    filter:brightness(1.2);
+}
+

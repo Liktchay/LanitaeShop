@@ -1,0 +1,18 @@
+*{
+    box-sizing:border-box;
+    margin: 1rem;
+}
+
+.layout-style{
+   /* max-width: 70rem;*/
+   
+}
+
+hr{
+    border-top: 1px solid aqua;
+}
+
+.header-style{
+    /*background-color: palevioletred;*/
+    
+}
