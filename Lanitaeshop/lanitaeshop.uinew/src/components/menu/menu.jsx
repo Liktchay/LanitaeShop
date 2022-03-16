@@ -4,12 +4,11 @@ import './menu.css'
 
 function Menu() {
     return (
-        <nav className="menu-style">
-            
+        <nav className="menu-style">            
             <MenuButton title='Products'/>
             <MenuButton title='pepe'/>
             <MenuButton title='pepito'/>
-            <MenuButton title='cacho'/>
+            <MenuButton title='cacho' />
         </nav>
         )
 

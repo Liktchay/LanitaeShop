@@ -1,18 +1,33 @@
 *{
     box-sizing:border-box;
-    margin: 1rem;
+    
+}
+ 
+.layout-style{
+    --background-gradient: 120deg, #f5f8fc 0, #f3f5f8 5.56%, #f1f1f1 11.11%, #efecea 16.67%, #ede6e2 22.22%, #ecdfda 27.78%, #ead7d1 33.33%, #e8cec8 38.89%, #e6c3c0 44.44%, #e3b8b8 50%, #dfadb2 55.56%, #dba3ae 61.11%, #d69aac 66.67%, #d192ac 72.22%, #ca8cae 77.78%, #c287b0 83.33%, #ba84b4 88.89%, #b082b8 94.44%, #a682bc 100%;
 }
 
-.layout-style{
-   /* max-width: 70rem;*/
-   
+.layout-style {
+    /* max-width: 70rem;*/
+    /*margin: 1rem;*/
+    width: 90%;
+    height: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    /*align-content:center;*/
+    background-image: linear-gradient(var(--background-gradient));
 }
 
 hr{
     border-top: 1px solid aqua;
+    margin: 0rem 1rem;
+ 
+    
 }
 
 .header-style{
     /*background-color: palevioletred;*/
     
 }
+
+

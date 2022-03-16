@@ -1,0 +1,14 @@
+.header-style {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 10% 70% 20%;
+    padding: 2rem 0.5rem;
+    align-items:center;
+ 
+    
+}
+
+.pepe{
+    display:grid;
+    text-align:center;
+}
