@@ -6,8 +6,7 @@ import Main from '../main/main.jsx'
 function Layout() {
     return(
         <div className="layout-style">
-            <Header />
-            <hr></hr>
+            <Header />            
             <Main />
         </div>
     )

@@ -11,16 +11,17 @@
     /* max-width: 70rem;*/
     /*margin: 1rem;*/
     /*width: 90%;*/
-    height: 1200px;
+    /*height: 1200px;*/
     margin-left: auto;
     margin-right: auto;
     /*align-content:center;*/
     background-image: linear-gradient(var(--background-gradient));
+    overflow:hidden;
 }
 
 hr{
     border-top: 1px solid aqua;
-    margin: 0rem 1rem;
+    margin: 10rem 1rem;
  
     
 }

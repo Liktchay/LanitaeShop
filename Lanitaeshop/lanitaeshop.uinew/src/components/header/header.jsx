@@ -7,6 +7,7 @@ function Header() {
         <header className="header-style">
             <div className="pepe">TITULO</div>
             <Menu />
+            
         </header>
     )
 }
