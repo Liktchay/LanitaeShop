@@ -1,7 +1,9 @@
-.main-style{
-    
+.main-style {
+    width: 90%;
     padding: 2rem 0.5rem;
-    margin: 2rem 0.5rem;
+    margin: 2rem auto;
     background-color: aqua;
     border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,1fr);
 }

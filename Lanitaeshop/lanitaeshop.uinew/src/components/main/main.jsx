@@ -1,10 +1,14 @@
 import React from 'react';
+import Product from '../product/product.jsx';
 import './main.css';
 
 function Main() {
     return (
         <div className="main-style">
-            <h1>This is my main</h1>       
+            <Product />
+            <Product />
+            <Product />
+            <Product />
         </div>
     )
 }
