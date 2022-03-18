@@ -4,16 +4,16 @@
     margin: 10rem auto;
     /*background-color: aqua;
     border: 1px solid black;*/
-    display: grid;
-    justify-items:center;
-    gap: 2rem;
+    /*display: grid;*/
+    /*justify-items:center;*/
+    /*gap: 2rem;*/
     /*grid-template-columns:repeat(auto-fit, 1fr);*/
     
 }
 
-@media screen and (min-width: 768px){
+/*@media screen and (min-width: 768px){
     .main-style {
         grid-template-columns: repeat(3,1fr);
         
     }
-}
+}*/

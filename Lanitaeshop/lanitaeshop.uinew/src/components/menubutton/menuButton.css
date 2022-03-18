@@ -5,7 +5,7 @@
     display:grid;
     width: 100%;
     text-align:center;
-    background-color:bisque;    
+    background-color:bisque ;    
     transition:filter 300ms;
 }
 
