@@ -1,27 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './product.css'
+
+
 
 
 //document.getElementById('product' + props.id).click(function () { console.log('pepito') });
 
-const clickHandler = () => {
-    console.log('pepe');
-}
+
+
 
 const mouseOuverHandler = (id) => {
-    let pepe = document.getElementById(id);
-    console.log(pepe);
+    let pepito = id;
+    
+    console.log(pepito);
 }
 
 function Product(props) {
+    /*console.log(props.objet)*/
+    const [product, setProduct] = useState( props.objet );
+    //const clickHandler = () => {
+    //    setProduct({ ...product, name: 'pepe'})
+    //}
 
+    useEffect(() => {
+        console.log('pepe')
+    })
 
-
+    const clickHandler = () => {
+        setProduct((oldProduct) => {
+            let newProduct = { ...oldProduct, price: 'pepe' }
+            return newProduct;
+        })
+    }
     return (
-        <article className="product-style" id={props.id} onClick={clickHandler} onMouseOver={() => mouseOuverHandler(props.id)}>
-            <img src={props.img}/>
-            <h4>{props.name}</h4>
-            <p>{props.price}</p>
+        <article className="product-style" id={product.id}  onMouseOver={() => mouseOuverHandler(product.id)}>
+            <img src={product.img} onClick={clickHandler}/>
+            <h4>{product.name}</h4>
+            <p>{product.price}</p>
+            <button>pepe</button>
+            
         </article>
         )
 }

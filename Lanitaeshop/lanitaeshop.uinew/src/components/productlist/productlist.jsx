@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Product from '../product/product.jsx';
 import './productliststyle.css';
 import { productlist} from '../products';
@@ -13,13 +13,22 @@ import { productlist} from '../products';
 //};
 
 function ProductList() {
-    
+
+
+    const [products, setProducts] = React.useState(productlist)
+
+    const removeItems = (id) => {
+        let newProductList = products.filter((product) => product.id !== id)
+        setProducts(newProductList)
+    }
+
     return (        
-        <section className="product-list-style">
-            {/*{getproductlist(productlist)};*/}
-            {productlist.map((product) => {
-                return <Product {...product}  key = {product.id}/>;
+        <section className="product-list-style">            
+            {products.map((product) => {
+                return <Product objet={product} key={product.id} />
+                
             })}
+           
         </section>
         )    
 }
