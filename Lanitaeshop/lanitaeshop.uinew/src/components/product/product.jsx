@@ -1,43 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import './product.css'
 
-
-
-
-//document.getElementById('product' + props.id).click(function () { console.log('pepito') });
-
-
-
-
-const mouseOuverHandler = (id) => {
-    let pepito = id;
+//const mouseOuverHandler = (id) => {
+//    let pepito = id;
     
-    console.log(pepito);
-}
+//    console.log(pepito);
+//}
 
 function Product(props) {
-    /*console.log(props.objet)*/
-    const [product, setProduct] = useState( props.objet );
+    console.log(props.object)
+    const [product, setProduct] = useState( props.object );
     //const clickHandler = () => {
     //    setProduct({ ...product, name: 'pepe'})
     //}
 
-    useEffect(() => {
-        console.log('pepe')
-    })
+    //useEffect(() => {
+    //    console.log('pepe')
+    //})
 
     const clickHandler = () => {
         setProduct((oldProduct) => {
-            let newProduct = { ...oldProduct, price: 'pepe' }
+            let newProduct = { ...oldProduct, productPrice: 'pepe' }
             return newProduct;
         })
     }
     return (
-        <article className="product-style" id={product.id}  onMouseOver={() => mouseOuverHandler(product.id)}>
-            <img src={product.img} onClick={clickHandler}/>
-            <h4>{product.name}</h4>
-            <p>{product.price}</p>
-            <button>pepe</button>
+        <article className="product-style" id={product.id}  >
+            <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/314/137/products/zenda_blanco2-23c7aa6d9427d10a3516453229634757-480-0.jpg" onClick={clickHandler}/>
+            <h2>{product.productName}</h2>
+            <h4>{product.productDescription}</h4>
+            <p>${product.productPrice}</p>
+            
             
         </article>
         )

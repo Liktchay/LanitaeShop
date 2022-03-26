@@ -1,6 +1,7 @@
 ﻿using System.Data;
+using LanitaeShop.DomainModel;
 using Microsoft.EntityFrameworkCore;
-using LanitaeShop.DataAccess.Entities;
+
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
@@ -21,7 +22,7 @@ namespace LanitaeShop.DataAccess.Mapping
             builder.HasKey(sl => sl.ID);
 
             builder.HasOne<Product>(sl => sl.Product)
-                   .WithMany(pd => pd.Sale)
+                   .WithMany(pd => pd.Sale)                   
                    .HasForeignKey(sl => sl.ProductID)
                    .OnDelete(DeleteBehavior.NoAction);
 

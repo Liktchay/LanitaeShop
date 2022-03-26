@@ -1,20 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using LanitaeShop.BusinessLogic.Services.Interfaces;
 using LanitaeShop.BusinessLogic.Services.Models;
 using LanitaeShop.BusinessLogic.Services.Models.Product;
 using LanitaeShop.DataAccess.Functions.CRUD;
 using LanitaeShop.DataAccess.Functions.Interfaces;
-using LanitaeShop.DataAccess.Entities;
+using LanitaeShop.DomainModel;
+using System.Linq;
 
 namespace LanitaeShop.BusinessLogic.Services.Implementation
 {
     public class Product_Service : IProduct_Service
     {
-        private ICRUD _crud = new CRUD();
-        public async Task<ResultSet<Product_ResultSet>> AddProduct(string productName, string productDescription, int productPrice, int productStock, bool productEnable)
+        private ICRUD<Product> _crud = new CRUD<Product>();
+        public async Task<ResultSet<Product>> AddProduct(string productName, string productDescription, int productPrice, int productStock, bool productEnable)
         {
-            ResultSet<Product_ResultSet> result = new ResultSet<Product_ResultSet>();
+            ResultSet<Product> result = new ResultSet<Product>();
 
             try
             {
@@ -27,16 +29,16 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                     ProductEnable = productEnable
                 };
 
-                newProduct = await _crud.Create<Product>(newProduct);
+                newProduct = await _crud.Create(newProduct);
 
-                Product_ResultSet addedProduct = new Product_ResultSet
+                Product addedProduct = new Product
                 {
-                    id = newProduct.ID,
-                    productName = newProduct.ProductName,
-                    productDescription = newProduct.ProductDescription,
-                    productPrice = newProduct.ProductPrice,
-                    productStock = newProduct.ProductStock,
-                    productEnable = newProduct.ProductEnable
+                    ID = newProduct.ID,
+                    ProductName = newProduct.ProductName,
+                    ProductDescription = newProduct.ProductDescription,
+                    ProductPrice = newProduct.ProductPrice,
+                    ProductStock = newProduct.ProductStock,
+                    ProductEnable = newProduct.ProductEnable
                 };
 
                 result.userMessage = string.Format("The product {0} has been added", productName);
@@ -53,23 +55,52 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
 
             return result;
         }
-
-        public async Task<ResultSet<Product_ResultSet>> GetProduct(int id)
+        public async Task<ResultSet_List<Product>> GetAllProducts()
         {
-            ResultSet<Product_ResultSet> result = new ResultSet<Product_ResultSet>();
+            ResultSet_List<Product> result = new ResultSet_List<Product>();
 
             try
             {
-                Product Product = await _crud.Select<Product>(id);
+                //Func<Product, bool> pepe = Product => true;
 
-                Product_ResultSet productFind = new Product_ResultSet
+                
+
+                IEnumerable<Product> pepito = await _crud.Select();
+
+                
+
+                result.userMessage = "FUNCO BIEN";
+                result.internalMessage = "VAMO LAS PUTAS";
+                result.result_set = pepito.ToList();
+                result.success = true;
+               
+
+            }
+            catch(Exception exception)
+            {
+                result.userMessage = "Fail to recover all products.";
+                result.exception = exception;
+                result.internalMessage = string.Format("BusinessLogic.Services.Implementation.Product_Service: AddProduct() {0}", exception.Message);
+            }
+
+            return result;
+        }
+        public async Task<ResultSet<Product>> GetProduct(int id)
+        {
+            ResultSet<Product> result = new ResultSet<Product>();
+
+            try
+            {
+                Product Product = await _crud.Select(id);
+
+                Product productFind = new Product
                 {
-                    id = Product.ID,
-                    productName = Product.ProductName,
-                    productDescription = Product.ProductDescription,
-                    productPrice = Product.ProductPrice,
-                    productStock = Product.ProductStock,
-                    productEnable = Product.ProductEnable
+                    ID = Product.ID,
+                    ProductName = Product.ProductName,
+                    ProductDescription = Product.ProductDescription,
+                    ProductPrice = Product.ProductPrice,
+                    ProductStock = Product.ProductStock,
+                    ProductEnable = Product.ProductEnable
                 };
 
                 result.userMessage = string.Format("Product with ID {0} was found", id);
@@ -87,13 +118,13 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             return result;
         }
 
-        public async Task<ResultSet<Product_ResultSet>> UpdateProduct(int id, string productName, string productDescription, int? productPrice, int? productStock, bool? productEnable)
+        public async Task<ResultSet<Product>> UpdateProduct(int id, string productName, string productDescription, int? productPrice, int? productStock, bool? productEnable)
         {
-            ResultSet<Product_ResultSet> result = new ResultSet<Product_ResultSet>();
+            ResultSet<Product> result = new ResultSet<Product>();
 
             try
             {
-                Product Product = await _crud.Select<Product>(id);
+                Product Product = await _crud.Select(id);
 
                 Product.ProductName = !string.IsNullOrEmpty(productName) ? productName : Product.ProductName;
                 Product.ProductDescription = !string.IsNullOrEmpty(productDescription) ? productDescription : Product.ProductDescription;
@@ -102,16 +133,16 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                 Product.ProductEnable = productEnable != null ? productEnable : Product.ProductEnable;
 
 
-                Product = await _crud.Update<Product>(Product, id);
+                Product = await _crud.Update(Product, id);
 
-                Product_ResultSet updatedProduct = new Product_ResultSet
+                Product updatedProduct = new Product
                 {
-                    id = Product.ID,
-                    productName = Product.ProductName,
-                    productDescription = Product.ProductDescription,
-                    productPrice = Product.ProductPrice,
-                    productStock = Product.ProductStock,
-                    productEnable = Product.ProductEnable
+                    ID = Product.ID,
+                    ProductName = Product.ProductName,
+                    ProductDescription = Product.ProductDescription,
+                    ProductPrice = Product.ProductPrice,
+                    ProductStock = Product.ProductStock,
+                    ProductEnable = Product.ProductEnable
                 };
 
                 result.userMessage = string.Format("The product with ID {0} has been successfuly updated", id);

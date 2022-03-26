@@ -1,0 +1,28 @@
+body {
+}
+
+.product-form-container {
+    display:flex;
+    justify-content:center;
+    
+}
+
+.product-form-container .product-form {
+    display:grid;
+    grid-template-columns:20rem;
+}
+.product-form div {
+   display:grid;
+   grid-template-columns: 50% 50%;
+    padding: 1rem 0;
+}
+
+
+.product-form div input{
+    background-color:transparent;
+    border:none;
+}
+
+.product-form div input:focus {
+    border-color:green;
+}

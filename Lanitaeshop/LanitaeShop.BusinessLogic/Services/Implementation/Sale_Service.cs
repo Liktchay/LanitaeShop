@@ -1,21 +1,20 @@
 ﻿using System;
 using LanitaeShop.BusinessLogic.Services.Interfaces;
 using LanitaeShop.BusinessLogic.Services.Models;
-using LanitaeShop.BusinessLogic.Services.Models.Sale;
 using LanitaeShop.DataAccess.Functions.CRUD;
 using LanitaeShop.DataAccess.Functions.Interfaces;
-using LanitaeShop.DataAccess.Entities;
 using System.Threading.Tasks;
+using LanitaeShop.DomainModel;
 
 namespace LanitaeShop.BusinessLogic.Services.Implementation
 {
     public class Sale_Service : ISale_Service
     {
-        private ICRUD _crud = new CRUD();
+        private ICRUD<Sale> _crud = new CRUD<Sale>();
 
-        public async Task<ResultSet<Sale_ResultSet>> AddSale(int productID, int saleTotalAmout, int personID)
+        public async Task<ResultSet<Sale>> AddSale(int productID, int saleTotalAmout, int personID)
         {
-            ResultSet<Sale_ResultSet> result = new ResultSet<Sale_ResultSet>();
+            ResultSet<Sale> result = new ResultSet<Sale>();
 
             try
             {
@@ -26,17 +25,17 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                     PersonID = personID
                 };
 
-                newSale = await _crud.Create<Sale>(newSale);
+                newSale = await _crud.Create(newSale);
 
-                Sale_ResultSet addedSale = new Sale_ResultSet()
+                Sale addedSale = new Sale()
                 {
-                    productID = newSale.ProductID,
-                    saleTotalAmount = newSale.SaleTotalAmount,
-                    personID = newSale.PersonID,
-                    saleDateTime = newSale.SaleDate
+                    ProductID = newSale.ProductID,
+                    SaleTotalAmount = newSale.SaleTotalAmount,
+                    PersonID = newSale.PersonID,
+                    SaleDate = newSale.SaleDate
                 };
 
-                result.userMessage = string.Format("New sale has been added. Ticket ID {0}", addedSale.id);
+                result.userMessage = string.Format("New sale has been added. Ticket ID {0}", addedSale.ID);
                 result.internalMessage = "BusinessLogic.Services.Implementation.Sale_Service: AddSale() method executed successfuly.";
                 result.result_set = addedSale;
                 result.success = true;

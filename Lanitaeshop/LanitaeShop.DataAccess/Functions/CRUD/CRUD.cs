@@ -1,18 +1,18 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LanitaeShop.DataAccess.DataContext;
 using LanitaeShop.DataAccess.Functions.Interfaces;
-using LanitaeShop.DataAccess.Entities;
+using System.Linq;
+using LanitaeShop.DomainModel;
 
 namespace LanitaeShop.DataAccess.Functions.CRUD
 {
-    public class CRUD : ICRUD
+    public class CRUD<T> : ICRUD<T> where T : BaseEntity
     {
-        public async Task<T> Create<T>(T dbObjet) where T : class
+        public async Task<T> Create(T dbObjet)
         {
             using (var db = new DatabaseContext(DatabaseContext.Options.DatabaseOptions))
             {
@@ -22,16 +22,35 @@ namespace LanitaeShop.DataAccess.Functions.CRUD
             }
         }
 
-        public async Task<T> Select<T>(int id) where T : class
+        public async Task<T> Select(int id) 
         {
             using (var db = new DatabaseContext(DatabaseContext.Options.DatabaseOptions))
             {
-                T dbOject = await db.FindAsync<T>(id);
-                return dbOject;
+
+                return db.Set<T>().SingleOrDefault(x => x.ID == id);
+                //return dbOject;
             }
         }
 
-        public async Task<T> Update<T>(T dbOject, int id) where T : class
+        public async Task<IEnumerable<T>> Select(Func<T, bool> predicate = null)
+        {
+            using (var db = new DatabaseContext(DatabaseContext.Options.DatabaseOptions))
+            {
+                IEnumerable<T> dbOject = null;
+
+                if (predicate != null)
+                {
+                    dbOject = await db.Set<T>().Where(predicate).AsQueryable().ToListAsync();
+                    return dbOject;
+                }
+
+                dbOject = await db.Set<T>().ToListAsync();
+                return dbOject;
+
+            }
+        }
+
+        public async Task<T> Update(T dbOject, int id)
         {
             using (var db = new DatabaseContext(DatabaseContext.Options.DatabaseOptions))
             {
@@ -45,7 +64,7 @@ namespace LanitaeShop.DataAccess.Functions.CRUD
             }
         }
 
-        public async Task<bool> Delete<T>(int id) where T : class
+        public async Task<bool> Delete(int id)
         {
             using (var db = new DatabaseContext(DatabaseContext.Options.DatabaseOptions))
             {

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using LanitaeShop.DataAccess.Entities;
+
 using LanitaeShop.DataAccess.Mapping;
 
 namespace LanitaeShop.DataAccess.DataContext

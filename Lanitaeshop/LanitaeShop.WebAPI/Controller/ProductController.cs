@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LanitaeShop.BusinessLogic.Services.Interfaces;
 using LanitaeShop.Models.Product;
+using Microsoft.AspNetCore.Cors;
 
 namespace LanitaeShop.Controller
 {
@@ -37,10 +38,28 @@ namespace LanitaeShop.Controller
         }
 
         [HttpGet]
+        
         [Route("getproduct")]
         public async Task<IActionResult> GetProduct(int id)
         {
             var result = await _product_Service.GetProduct(id);
+
+            switch (result.success)
+            {
+                case true:
+                    return Ok(result);
+
+                case false:
+                    return StatusCode(500, result);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("getallproducts")]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var result = await _product_Service.GetAllProducts();
 
             switch (result.success)
             {

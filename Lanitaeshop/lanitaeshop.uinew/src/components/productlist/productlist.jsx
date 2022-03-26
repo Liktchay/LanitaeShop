@@ -1,32 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Product from '../product/product.jsx';
 import './productliststyle.css';
 import { productlist} from '../products';
 
-
-
-
-//const getproductlist = (list) => {
-//    list.map((item) => {
-//        return <Product {...item} key={item.id}/>;        
-//    });
-//};
-
 function ProductList() {
 
 
-    const [products, setProducts] = React.useState(productlist)
+    const [products, setProducts] = React.useState([])
 
-    const removeItems = (id) => {
-        let newProductList = products.filter((product) => product.id !== id)
-        setProducts(newProductList)
+    const getProducts = async () => {
+        const response = await fetch('https://localhost:44375/product/getallproducts',
+                                    {
+                                        headers: {
+                                            "Content-Type": "application/json",                                            
+                                        },
+                                        method: "get"
+                                    });
+        const products = await response.json();
+        setProducts(products.result_set);
     }
 
+    useEffect(() => {
+        getProducts();
+    },[])
+    
     return (        
         <section className="product-list-style">            
             {products.map((product) => {
-                return <Product objet={product} key={product.id} />
-                
+                return <Product object={product} key={product.id} />
+
             })}
            
         </section>

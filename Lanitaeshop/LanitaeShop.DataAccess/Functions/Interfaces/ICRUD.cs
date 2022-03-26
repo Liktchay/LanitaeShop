@@ -1,19 +1,22 @@
-﻿using System;
+﻿using LanitaeShop.DomainModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LanitaeShop.DataAccess.Functions.Interfaces
 {
-    public interface ICRUD
+    public interface ICRUD<T> where T : BaseEntity
     {
-        Task<T> Create<T>(T dbObject) where T : class;
+        Task<T> Create(T dbObject) ;
 
-        Task<T> Select<T>(int id) where T : class;
+        Task<T> Select(int id) ;
 
-        Task<T> Update<T>(T dbObject, int id) where T : class;
+        Task<IEnumerable<T>> Select(Func<T, bool> predicate = null) ;
 
-        Task<bool> Delete<T>(int id) where T : class;
+        Task<T> Update(T dbObject, int id) ;
+
+        Task<bool> Delete(int id) ;
 
     }
 }

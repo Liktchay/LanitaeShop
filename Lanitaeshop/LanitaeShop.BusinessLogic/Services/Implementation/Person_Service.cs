@@ -2,19 +2,18 @@
 using System.Threading.Tasks;
 using LanitaeShop.BusinessLogic.Services.Interfaces;
 using LanitaeShop.BusinessLogic.Services.Models;
-using LanitaeShop.BusinessLogic.Services.Models.Person;
 using LanitaeShop.DataAccess.Functions.CRUD;
 using LanitaeShop.DataAccess.Functions.Interfaces;
-using LanitaeShop.DataAccess.Entities;
+using LanitaeShop.DomainModel;
 
 namespace LanitaeShop.BusinessLogic.Services.Implementation
 {
     public class Person_Service : IPerson_Service
     {
-        private ICRUD _crud = new CRUD();
-        public async Task<ResultSet<Person_ResultSet>> AddPerson(string personName, string personSurname, string personAddress)
+        private ICRUD<Person> _crud = new CRUD<Person>();
+        public async Task<ResultSet<Person>> AddPerson(string personName, string personSurname, string personAddress)
         {
-            ResultSet<Person_ResultSet> result = new ResultSet<Person_ResultSet>();
+            ResultSet<Person> result = new ResultSet<Person>();
 
             try
             {
@@ -25,14 +24,14 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                     PersonAddress = personAddress
                 };
 
-                newPerson = await _crud.Create<Person>(newPerson);
+                newPerson = await _crud.Create(newPerson);
 
-                Person_ResultSet addedPerson = new Person_ResultSet()
+                Person addedPerson = new Person()
                 {
-                    id = newPerson.ID,
-                    personName = newPerson.PersonName,
-                    personSurname = newPerson.PersonSurname,
-                    personAddress = newPerson.PersonAddress
+                    ID = newPerson.ID,
+                    PersonName = newPerson.PersonName,
+                    PersonSurname = newPerson.PersonSurname,
+                    PersonAddress = newPerson.PersonAddress
                 };
 
                 result.userMessage = string.Format("The person {0} has been added", personName);
@@ -50,20 +49,20 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             return result;
         }
 
-        public async Task<ResultSet<Person_ResultSet>> GetPerson(int id)
+        public async Task<ResultSet<Person>> GetPerson(int id)
         {
-            ResultSet<Person_ResultSet> result = new ResultSet<Person_ResultSet>();
+            ResultSet<Person> result = new ResultSet<Person>();
 
             try
             {
-                Person person = await _crud.Select<Person>(id);
+                Person person = await _crud.Select(id);
 
-                Person_ResultSet foundProduct = new Person_ResultSet()
+                Person foundProduct = new Person()
                 {
-                    id = person.ID,
-                    personName = person.PersonName,
-                    personSurname = person.PersonSurname,
-                    personAddress = person.PersonAddress
+                    ID = person.ID,
+                    PersonName = person.PersonName,
+                    PersonSurname = person.PersonSurname,
+                    PersonAddress = person.PersonAddress
                 };
 
                 result.userMessage = string.Format("The person with {0} was found.", id);
@@ -80,27 +79,27 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             return result;
         }
 
-        public async Task<ResultSet<Person_ResultSet>> UpdatePerson(int id, string personAddress)
+        public async Task<ResultSet<Person>> UpdatePerson(int id, string personAddress)
         {
-            ResultSet<Person_ResultSet> result = new ResultSet<Person_ResultSet>();
+            ResultSet<Person> result = new ResultSet<Person>();
 
             try
             {
-                Person updatePerson = await _crud.Select<Person>(id);
+                Person updatePerson = await _crud.Select(id);
 
                 updatePerson.PersonAddress = !string.IsNullOrEmpty(personAddress) ? personAddress : updatePerson.PersonAddress;
 
-                updatePerson = await _crud.Update<Person>(updatePerson, id);
+                updatePerson = await _crud.Update(updatePerson, id);
 
-                Person_ResultSet personUpdated = new Person_ResultSet()
+                Person personUpdated = new Person()
                 {
-                    id = updatePerson.ID,
-                    personName = updatePerson.PersonName,
-                    personSurname = updatePerson.PersonSurname,
-                    personAddress = updatePerson.PersonAddress
+                    ID = updatePerson.ID,
+                    PersonName = updatePerson.PersonName,
+                    PersonSurname = updatePerson.PersonSurname,
+                    PersonAddress = updatePerson.PersonAddress
                 };
 
-                result.userMessage = string.Format("The person {0} address has been udpated", personUpdated.personName);
+                result.userMessage = string.Format("The person {0} address has been udpated", personUpdated.PersonName);
                 result.internalMessage = "BusinessLogic.Services.Implementation.Person_Service: UpdatePerson() method executed successfuly.";
                 result.result_set = personUpdated;
                 result.success = true;

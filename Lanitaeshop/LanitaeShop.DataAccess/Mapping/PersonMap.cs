@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using LanitaeShop.DataAccess.Entities;
+﻿using LanitaeShop.DomainModel;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using LanitaeShop.DataAccess.Entities;
+
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using LanitaeShop.DomainModel;
 
 namespace LanitaeShop.DataAccess.Mapping
 {
