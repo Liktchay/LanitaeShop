@@ -27,14 +27,7 @@ namespace LanitaeShop.Controller
         [HttpPost]
         [Route("addproduct")]
         public async Task<IActionResult> AddProduct(Product product) 
-        {
-
-            //int Price = Int32.Parse(ProductPrice);
-            //int Stock = Int32.Parse(ProductStock);
-
-            //Product productData = System.Text.Json.JsonSerializer.Deserialize<Product>(pepe);
-                //JsonConvert.DeserializeObject<Product>(pepe);
-
+        {           
             var result = await _product_Service.AddProduct(product.ProductName, product.ProductDescription, product.ProductPrice, product.ProductStock, product.ProductEnable, product.ImageSource);//product.garment, product.price);
             
 

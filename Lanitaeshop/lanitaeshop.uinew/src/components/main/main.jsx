@@ -5,10 +5,10 @@ import './main.css';
 
 function Main() {
     return (
-        <div className="main-style">
+        <main className="main-style">
             {/*<ProductList/>*/}
             <AddNewProduct/>
-        </div>
+        </main>
     )
 }
 
