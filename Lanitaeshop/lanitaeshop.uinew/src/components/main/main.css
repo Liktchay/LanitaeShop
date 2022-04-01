@@ -2,19 +2,6 @@
     width: 90%;
     padding: 2rem 0.5rem;
     margin: 10rem auto;
-    height:100%;
-    /*background-color: aqua;
-    border: 1px solid black;*/
-    /*display: grid;*/
-    /*justify-items:center;*/
-    /*gap: 2rem;*/
-    /*grid-template-columns:repeat(auto-fit, 1fr);*/
+    height: 100%;
     
 }
-
-/*@media screen and (min-width: 768px){
-    .main-style {
-        grid-template-columns: repeat(3,1fr);
-        
-    }
-}*/

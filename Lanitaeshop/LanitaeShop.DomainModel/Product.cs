@@ -8,9 +8,10 @@ namespace LanitaeShop.DomainModel
     {
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public int? ProductPrice { get; set; }
-        public int? ProductStock { get; set; }
-        public bool? ProductEnable { get; set; }
+        public int ProductPrice { get; set; }
+        public int ProductStock { get; set; }
+        public bool ProductEnable { get; set; }
+        public string ImageSource { get; set; }
         public List<Sale> Sale { get; set; }
 
     }

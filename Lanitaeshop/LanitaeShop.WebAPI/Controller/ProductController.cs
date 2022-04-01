@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using LanitaeShop.BusinessLogic.Services.Interfaces;
 using LanitaeShop.Models.Product;
 using Microsoft.AspNetCore.Cors;
+using LanitaeShop.DomainModel;
+using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace LanitaeShop.Controller
 {
@@ -23,9 +26,18 @@ namespace LanitaeShop.Controller
 
         [HttpPost]
         [Route("addproduct")]
-        public async Task<IActionResult> AddProduct(string name, string description, int price, int stock, bool enable)//Product_Pass_Object product)
+        public async Task<IActionResult> AddProduct(Product product) 
         {
-            var result = await _product_Service.AddProduct(name, description, price, stock, enable);//product.garment, product.price);
+
+            //int Price = Int32.Parse(ProductPrice);
+            //int Stock = Int32.Parse(ProductStock);
+
+            //Product productData = System.Text.Json.JsonSerializer.Deserialize<Product>(pepe);
+                //JsonConvert.DeserializeObject<Product>(pepe);
+
+            var result = await _product_Service.AddProduct(product.ProductName, product.ProductDescription, product.ProductPrice, product.ProductStock, product.ProductEnable, product.ImageSource);//product.garment, product.price);
+            
+
 
             switch (result.success)
             {
@@ -73,7 +85,7 @@ namespace LanitaeShop.Controller
 
         [HttpPost]
         [Route("updateproduct")]
-        public async Task<IActionResult> UpdateProduct(int id, string name, string description, int? price, int? stock, bool? enable)
+        public async Task<IActionResult> UpdateProduct(int id, string name, string description, int price, int stock, bool enable)
         {
             var result = await _product_Service.UpdateProduct(id, name, description, price, stock, enable);
 

@@ -1,18 +1,18 @@
 export const menuoptions = [
     {
         id: 1,
-        label:'Calzado'
+        label:'Inicio'
     },
     {
         id: 2,
-        label:'Remeras'
+        label:'Ropa'
     },
     {
         id: 3,
-        label:'Pantalones'
+        label:'Accesorios'
     },
     {
         id: 4,
-        label:'Accesorios'
+        label:'Quienes somos?'
     }
 ]

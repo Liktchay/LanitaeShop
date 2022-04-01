@@ -2,5 +2,9 @@
   {
     "outputFile": "src/components/addproduct/StyleSheet.css",
     "inputFile": "src/components/addproduct/StyleSheet.scss"
+  },
+  {
+    "outputFile": "src/components/addproduct/addproductstyle.css",
+    "inputFile": "src/components/addproduct/addproductstyle.scss"
   }
 ]

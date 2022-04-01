@@ -14,7 +14,7 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
     public class Product_Service : IProduct_Service
     {
         private ICRUD<Product> _crud = new CRUD<Product>();
-        public async Task<ResultSet<Product>> AddProduct(string productName, string productDescription, int productPrice, int productStock, bool productEnable)
+        public async Task<ResultSet<Product>> AddProduct(string productName, string productDescription, int productPrice, int productStock, bool productEnable, string imageSource)
         {
             ResultSet<Product> result = new ResultSet<Product>();
 
@@ -26,7 +26,8 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                     ProductDescription = productDescription,
                     ProductPrice = productPrice,
                     ProductStock = productStock,
-                    ProductEnable = productEnable
+                    ProductEnable = productEnable,
+                    ImageSource = imageSource
                 };
 
                 newProduct = await _crud.Create(newProduct);
@@ -38,7 +39,8 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                     ProductDescription = newProduct.ProductDescription,
                     ProductPrice = newProduct.ProductPrice,
                     ProductStock = newProduct.ProductStock,
-                    ProductEnable = newProduct.ProductEnable
+                    ProductEnable = newProduct.ProductEnable,
+                    ImageSource = newProduct.ImageSource
                 };
 
                 result.userMessage = string.Format("The product {0} has been added", productName);
@@ -55,6 +57,7 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
 
             return result;
         }
+
         public async Task<ResultSet_List<Product>> GetAllProducts()
         {
             ResultSet_List<Product> result = new ResultSet_List<Product>();
@@ -100,7 +103,8 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
                     ProductDescription = Product.ProductDescription,
                     ProductPrice = Product.ProductPrice,
                     ProductStock = Product.ProductStock,
-                    ProductEnable = Product.ProductEnable
+                    ProductEnable = Product.ProductEnable,
+                    ImageSource = Product.ImageSource
                 };
 
                 result.userMessage = string.Format("Product with ID {0} was found", id);
@@ -118,7 +122,7 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
             return result;
         }
 
-        public async Task<ResultSet<Product>> UpdateProduct(int id, string productName, string productDescription, int? productPrice, int? productStock, bool? productEnable)
+        public async Task<ResultSet<Product>> UpdateProduct(int id, string productName, string productDescription, int productPrice, int productStock, bool productEnable)
         {
             ResultSet<Product> result = new ResultSet<Product>();
 
@@ -128,9 +132,10 @@ namespace LanitaeShop.BusinessLogic.Services.Implementation
 
                 Product.ProductName = !string.IsNullOrEmpty(productName) ? productName : Product.ProductName;
                 Product.ProductDescription = !string.IsNullOrEmpty(productDescription) ? productDescription : Product.ProductDescription;
-                Product.ProductPrice = productPrice != null  ? productPrice : Product.ProductPrice;
-                Product.ProductStock = productStock != null ? productStock : Product.ProductStock;
-                Product.ProductEnable = productEnable != null ? productEnable : Product.ProductEnable;
+                Product.ProductPrice = Product.ProductPrice != productPrice ? productPrice : Product.ProductPrice;
+                Product.ProductStock = Product.ProductStock != productStock ? productStock : Product.ProductStock;
+                Product.ProductEnable = Product.ProductEnable;
+                
 
 
                 Product = await _crud.Update(Product, id);

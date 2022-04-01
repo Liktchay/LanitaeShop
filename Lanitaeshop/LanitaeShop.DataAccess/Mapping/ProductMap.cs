@@ -50,6 +50,11 @@ namespace LanitaeShop.DataAccess.Mapping
                    .HasColumnType("bit")
                    .IsRequired(true);
 
+            builder.Property(pd => pd.ImageSource)
+                   .HasColumnName("Image_Source")
+                   .HasColumnType("nvarchar")
+                   .IsRequired(false);
+
             builder.HasMany<Sale>(pr => pr.Sale)
                    .WithOne(sl => sl.Product)
                    .HasForeignKey(sl => sl.ProductID)

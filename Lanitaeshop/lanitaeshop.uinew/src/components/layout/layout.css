@@ -16,7 +16,8 @@
     margin-right: auto;
     /*align-content:center;*/
     background-image: linear-gradient(var(--background-gradient));
-    overflow:hidden;
+    overflow: hidden;
+    
 }
 
 hr{

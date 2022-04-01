@@ -18,16 +18,19 @@ function ProductList() {
                                     });
         const products = await response.json();
         setProducts(products.result_set);
+        console.log(products.result_set)
     }
 
     useEffect(() => {
         getProducts();
     },[])
+
     
+
     return (        
         <section className="product-list-style">            
             {products.map((product) => {
-                return <Product object={product} key={product.id} />
+                return <Product {...product} key={product.id} />
 
             })}
            
